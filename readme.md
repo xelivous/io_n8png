@@ -14,6 +14,27 @@ I put the code itself under MIT but everything else is unlicensed.
 
 I've included most of the data, saves, and textures from the game that i was aware of for testing and so you don't have to supply them yourself. They're licensed under whatever they're licensed under, and there's no guarantee you can use any of the models generated from this tool for anything else without getting the permission of the creator of N8*. I personally made a lot of the models and i'm fine with them being re-used wherever, but i didn't make most of the textures.
 
+## Installing
+
+Clone this repository at the following locations below. Replace XXXX with your blender version.
+
+The `config` folder should be next to the `scripts` folder by default. If the `scripts` folder doesn't exist, you'll have to create it along with the subfolders.
+
+Linux:
+```
+~/.config/blender/XXXX/scripts/addons/io_n8png/
+```
+
+Windows:
+```
+%APPDATA%\Blender Foundation\Blender\XXXX\scripts\addons\io_n8png\
+```
+
+Alternatively you can take the zip from the Releases and extract it to the locations above.
+
+You can also install it globally where blender is installed, but it's easier to do it in the user-specific directory.
+
+
 ## Implemented Features
 
 * Able to load hats/stuff/monsters in the StartData format, assuming they only use pixel2 and tpixel
