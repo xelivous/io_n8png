@@ -25,7 +25,7 @@ class CellBlock:
         from . import import_n8png
 
         filepath = os.path.dirname(os.path.realpath(__file__))
-        filepath = str(Path(filepath) / "data" / "Stuff" / self.mesh_name) + ".png"
+        filepath = str(Path(filepath) / "data" / "stuff" / self.mesh_name.lower()) + ".png"
         result, block = import_n8png.load(context, filepath)
 
         if block:
