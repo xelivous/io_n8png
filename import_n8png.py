@@ -23,11 +23,11 @@ def load_file(filepath, context) -> (str,str):
     """
     loads the n8 png into a string with the PNG data removed
     """
-    print(f"importing n8png. filepath: {filepath.lower()}")
+    print(f"importing n8png. filepath: {filepath}")
 
     data = ""
     version = "UNKNOWN"
-    with open(filepath.lower(), mode='r', errors='ignore') as n8file:
+    with open(filepath, mode='r', errors='ignore') as n8file:
         data = n8file.read()
 
         # trim everything before StartData (the png data)
@@ -414,17 +414,21 @@ class StartData(N8Parser):
         author = split[1].strip()
         filetype = split[2].strip()
         
-        print(f"Filetype is {filetype}")
+        print(f"Filetype is {filetype}.")
 
         if filetype.lower() == "block":
+            print("Found filetype of block")
             filetype = "stuff"
 
-        if filetype.lower() == "stuff":
+        elif filetype.lower() == "stuff":
+            print("Found filetype of struff")
             self.block_scale = split[5].strip()
-        if filetype.lower() == "monster":
+        elif filetype.lower() == "monster":
+            print("Found filetype of monster")
             idk = split[5].strip() # {8000,0} is on fishman; otherwise it's just a blank comma field.....
             self.block_scale = split[6].strip()
-        if filetype.lower() == "hat":
+        elif filetype.lower() == "hat" or filetype.lower() == "item":
+            print("Found filetype of hat/item")
             self.block_scale = 1.0
             hold_or_wear = split[5].strip()
 
